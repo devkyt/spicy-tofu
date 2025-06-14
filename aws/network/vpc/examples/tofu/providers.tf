@@ -4,6 +4,6 @@ provider "aws" {
 
 terraform {
   backend "local" {
-    path = "state/terraform.tfstate"
+    path = "aws/network/vpc/examples/tofu/terraform.tfstate"
   }
 }
