@@ -9,7 +9,8 @@ module "vpc" {
     # the number of cidr blocks must be equal to the number of availability zones
     cidr_blocks = ["10.0.0.0/19", "10.0.32.0/19"]
     tags = {
-      # use this tags for private subnets if you are going to run EKS cluster in this VPC
+      Type = "private"
+      # use these tags for private subnets if you are going to run EKS cluster in this VPC
       "kubernetes.io/role/internal-elb"  = "1"
       "kubernetes.io/cluster/mastermind" = "owned" # where mastermind is the cluster name (replace with your cluster name )
     }
@@ -19,7 +20,8 @@ module "vpc" {
     # the number of cidr blocks must be equal to the number of availability zones
     cidr_blocks = ["10.0.64.0/19", "10.0.96.0/19"]
     tags = {
-      # use this tags for public subnets if you are going to run EKS cluster in this VPC
+      Type = "public"
+      # use these tags for public subnets if you are going to run EKS cluster in this VPC
       "kubernetes.io/role/elb"           = "1"
       "kubernetes.io/cluster/mastermind" = "owned" # where mastermind is the cluster name (replace with your cluster name )
     }
